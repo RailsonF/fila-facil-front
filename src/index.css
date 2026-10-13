@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  --color-marca-50: #f0fdfa;
+  --color-marca-100: #ccfbf1;
+  --color-marca-200: #99f6e4;
+  --color-marca-300: #5eead4;
+  --color-marca-400: #2dd4bf;
+  --color-marca-500: #14b8a6;
+  --color-marca-600: #0d9488;
+  --color-marca-700: #0f766e;
+  --color-marca-800: #115e59;
+  --color-marca-900: #134e4a;
+
+  --shadow-alta: 0 2px 4px rgb(15 23 42 / 0.04), 0 24px 48px -24px rgb(15 23 42 / 0.28);
+
+  --animate-senhas-pulse: senhas-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-toast: toast-entra 0.22s ease-out;
+
+  @keyframes senhas-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.96); }
+  }
+
+  @keyframes toast-entra {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-marca-500;
+  }
+}
+
+@utility card {
+  @apply rounded-2xl border border-slate-200/80 bg-white;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.18);
+}
+
+@utility grid-fundo {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(13 148 136 / 0.14) 1px, transparent 0);
+  background-size: 22px 22px;
+}
